@@ -13,7 +13,7 @@ install_nextcloud(){
   if [[ -d /usr/share/nginx/nextcloud/ ]]; then
     TERM=ansi whiptail --title "安装中" --infobox "更新nextcloud中..." 7 68
     wget https://github.com/nextcloud/server/archive/refs/tags/${cloudver}.zip
-    unzip -o nextcloud*
+    unzip -o -d ${cloudver}.zip nextcloud 
     rm nextcloud*.zip
     cd
   else
@@ -22,7 +22,7 @@ install_nextcloud(){
   mysql -u root -e "GRANT ALL PRIVILEGES ON nextcloud.* to nextcloud@'localhost';"
   mysql -u root -e "flush privileges;"
     wget https://github.com/nextcloud/server/archive/refs/tags/${cloudver}.zip
-  unzip -o nextcloud*
+  unzip -d ${cloudver}.zip nextcloud
   rm nextcloud*.zip
   mkdir /usr/share/nginx/nextcloud_data
   cd /usr/share/nginx/nextcloud/config
