@@ -13,7 +13,7 @@ install_nextcloud(){
   if [[ -d /usr/share/nginx/nextcloud/ ]]; then
     TERM=ansi whiptail --title "安装中" --infobox "更新nextcloud中..." 7 68
     wget https://github.com/nextcloud/server/archive/refs/tags/${cloudver}.zip
-    unzip -o ${cloudver}.zip -d nextcloud 
+    unzip -o ${cloudver}.zip -d /usr/share/nginx/nextcloud 
     rm nextcloud*.zip
     cd
   else
